@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vedic Gold - Premium Ayurvedic Wellness</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #27ae60;
+            --secondary: #1e8449;
+            --dark: #1a1a1a;
+            --gold: #f1c40f;
+            --light: #f4f4f4;
+            --text: #333;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background-color: var(--light); color: var(--text); overflow-x: hidden; }
+
+        /* Animation Keyframes */
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+
+        /* Header & Offer Bar */
+        .top-bar {
+            background: var(--dark);
+            color: var(--gold);
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .product-img-container {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+
+        .product-img-container img {
+            width: 100%;
+            border-radius: 20px;
+            transition: 0.5s ease;
+        }
+
+        .product-img-container:hover img { transform: scale(1.02); }
+
+        .promo-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #e74c3c;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50%;
+            font-weight: 800;
+            font-size: 14px;
+            animation: pulse 2s infinite;
+        }
+
+        /* Typography */
+        h1 { font-size: 28px; color: var(--dark); margin-bottom: 10px; font-weight: 800; }
+        .tagline { color: var(--primary); font-weight: 600; text-transform: uppercase; font-size: 13px; }
+
+        /* Timer Section */
+        .timer-container {
+            margin: 20px 0;
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 15px;
+            display: inline-block;
+            border: 1px dashed #856404;
+        }
+
+        .timer-text { font-size: 14px; color: #856404; font-weight: bold; margin-bottom: 5px; }
+        #countdown { font-size: 20px; font-weight: 800; color: #d35400; }
+
+        /* Pricing Card */
+        .pricing-section {
+            padding: 30px 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .offer-card {
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 20px;
+            padding: 25px;
+            position: relative;
+            box-shadow: 0 15px 35px rgba(39, 174, 96, 0.1);
+        }
+
+        .best-seller {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: var(--dark);
+            padding: 5px 20px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .price-row { display: flex; align-items: center; justify-content: center; gap: 15px; margin: 15px 0; }
+        .current-price { font-size: 35px; font-weight: 800; color: var(--dark); }
+        .old-price { font-size: 20px; color: #999; text-decoration: line-through; }
+
+        /* Features */
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 25px 0;
+            text-align: left;
+        }
+
+        .f-item { font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+        .f-item::before { content: '✔'; color: var(--primary); }
+
+        /* Buttons */
+        .btn-group { display: flex; flex-direction: column; gap: 15px; }
+        
+        .btn {
+            padding: 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 16px;
+            text-transform: uppercase;
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .btn-whatsapp {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 10px 20px rgba(39, 174, 96, 0.3);
+        }
+
+        .btn-whatsapp:hover { background: var(--secondary); transform: translateY(-3px); }
+
+        .btn-call { border: 2px solid var(--dark); color: var(--dark); }
+
+        /* Reviews Section */
+        .reviews { padding: 40px 20px; background: white; margin-top: 40px; }
+        .review-card {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--gold);
+        }
+        .stars { color: var(--gold); margin-bottom: 10px; }
+        .r-name { font-weight: 700; font-size: 14px; margin-top: 10px; display: block; }
+
+        /* FAQ Section */
+        .faq { padding: 40px 20px; max-width: 600px; margin: 0 auto; }
+        .faq h2 { text-align: center; margin-bottom: 20px; }
+        details { background: white; padding: 15px; border-radius: 10px; margin-bottom: 10px; cursor: pointer; }
+        summary { font-weight: 700; color: var(--dark); }
+        details p { margin-top: 10px; font-size: 14px; color: #666; }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: #777;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 12px;
+        }
+
+        /* Mobile Optimization */
+        @media (max-width: 480px) {
+            h1 { font-size: 24px; }
+            .current-price { font-size: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">🔥 MEGA OFFER: BUY 2 GET 1 FREE (TODAY ONLY) 🔥</div>
+
+    <section class="hero">
+        <div class="tagline">Ancient Wisdom for Modern Life</div>
+        <h1>Vedic Gold Premium Kit</h1>
+        
+        <div class="product-img-container">
+            <span class="promo-badge">FREE<br>GIFT</span>
+            <img src="https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&q=80&w=800" alt="Ayurvedic Product">
+        </div>
+
+        <div class="timer-container">
+            <p class="timer-text">Limited Time Offer Ends In:</p>
+            <div id="countdown">00h : 00m : 00s</div>
+        </div>
+    </section>
+
+    <section class="pricing-section">
+        <div class="offer-card">
+            <div class="best-seller">MOST POPULAR OFFER</div>
+            <h3>Ayurvedic Health Pack</h3>
+            <div class="price-row">
+                <span class="old-price">₹2,999</span>
+                <span class="current-price">₹999.00</span>
+            </div>
+            
+            <div class="features">
+                <div class="f-item">100% Pure Herbs</div>
+                <div class="f-item">No Side Effects</div>
+                <div class="f-item">Lab Tested Quality</div>
+                <div class="f-item">Free Consultation</div>
+            </div>
+
+            <p style="font-size: 13px; color: #e74c3c; margin-bottom: 20px; font-weight: bold;">
+                🎁 Special: Buy 2 Packs and get 1 extra Pack absolutely FREE!
+            </p>
+
+            <div class="btn-group">
+                <a href="https://wa.me/919876543210?text=Hello, I want to order the Buy 2 Get 1 Free offer!" class="btn btn-whatsapp">Order via WhatsApp</a>
+                <a href="tel:+919876543210" class="btn btn-call">Call Support: +91 9876543210</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews">
+        <h2 style="text-align: center; margin-bottom: 30px;">What Our Customers Say</h2>
+        
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>"Life changing product! I have been using this for 2 months and the results are amazing."</p>
+            <span class="r-name">- Rajesh Kumar, Delhi</span>
+        </div>
+
+        <div class="review-card">
+            <div class="stars">★★★★★</div>
+            <p>"Delivery was very fast and the packaging is very premium. Highly recommend the 2+1 offer."</p>
+            <span class="r-name">- Sunita Sharma, Mumbai</span>
+        </div>
+    </section>
+
+    <section class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <details>
+            <summary>Is it safe to use?</summary>
+            <p>Yes, it is made with 100% natural herbs and has no chemical additives.</p>
+        </details>
+        <details>
+            <summary>How much time does delivery take?</summary>
+            <p>We usually deliver within 3-5 business days across India.</p>
+        </details>
+        <details>
+            <summary>How to claim Buy 2 Get 1 offer?</summary>
+            <p>Simply message us on WhatsApp and our team will apply the offer to your order.</p>
+        </details>
+    </section>
+
+    <footer>
+        <p>© 2026 Vedic Gold Wellness Pvt. Ltd.</p>
+        <p>100% Secure Checkout | Privacy Policy | Terms of Service</p>
+    </footer>
+
+    <script>
+        // Real-time Countdown Timer Logic
+        function startTimer(duration, display) {
+            var timer = duration, hours, minutes, seconds;
+            setInterval(function () {
+                hours = parseInt(timer / 3600, 10);
+                minutes = parseInt((timer % 3600) / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = hours + "h : " + minutes + "m : " + seconds + "s";
+
+                if (--timer < 0) {
+                    timer = duration;
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            var fiveHours = 60 * 60 * 5; // 5 hours timer
+            var display = document.querySelector('#countdown');
+            startTimer(fiveHours, display);
+        };
+    </script>
+
+</body>
+</html>
